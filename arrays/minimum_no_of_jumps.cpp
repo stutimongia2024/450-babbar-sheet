@@ -1,13 +1,12 @@
 https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
 class Solution{
   public:
     int minJumps(int arr[], int n){
-       
+
         int i,maxreach,step,jump;
         if(n<=1)
         return 0;
@@ -52,4 +51,4 @@ int main()
     }
     return 0;
 }
-  
+
