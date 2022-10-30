@@ -1,0 +1,24 @@
+https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/description/
+
+class Solution {
+    public int numOfSubarrays(int[] arr) {
+        int c=0,odd=0,even=0,csum=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            csum+=arr[i];
+            if(csum%2==0)
+            {
+                c+=odd;
+                even++;
+            }
+            else
+            {
+                c+=1+even;
+                odd++;
+            }
+            c=c%1000000007;
+        }
+        
+        return c;
+    }
+}
