@@ -1,0 +1,14 @@
+https://leetcode.com/problems/concatenation-of-array/description/
+
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int[] a=new int[2*nums.length];
+        int i,n=nums.length;
+        for(i=0;i<nums.length;i++)
+        {
+            a[i]=nums[i];
+            a[i+n]=nums[i];
+        }
+        return a;
+    }
+}
