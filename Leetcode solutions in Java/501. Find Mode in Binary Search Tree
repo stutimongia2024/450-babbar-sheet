@@ -1,0 +1,59 @@
+https://leetcode.com/problems/find-mode-in-binary-search-tree/description/
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    int prev=0;
+    int max=0;
+    int curmax=0;
+    ArrayList <Integer>res=new ArrayList<Integer>();
+    public int[] findMode(TreeNode root) 
+    {
+        inorder(root);
+        int a[]=new int[res.size()];
+        int j=0;
+        
+        for(int i:res)
+            a[j++]=i;
+        return a;
+        
+    }
+    public void inorder(TreeNode root)
+    {
+        if(root==null)return;
+        inorder(root.left);
+        if(prev==root.val)
+        {
+            curmax++;
+        }
+        else
+        {
+            prev=root.val;
+            curmax=1;
+            
+        }
+        if(curmax>max)
+        {
+            max=curmax;
+            res.clear();
+            res.add(root.val);
+            
+        }
+        else if(curmax==max)
+            res.add(root.val);
+        inorder(root.right);
+    }
+}
